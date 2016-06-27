@@ -1,0 +1,16 @@
+.content{
+    padding:0 10px;
+}
+
+.formline {
+    width: 100%;
+    height: 50px;
+}
+
+.topic {
+    width: 200px;
+    float: left;
+}
+.right-button{
+    float: right;
+}

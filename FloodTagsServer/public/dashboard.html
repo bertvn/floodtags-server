@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="../static/jquery-2.2.3.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="../static/dashboard.js"></script>
+<script src="../static/map.js"></script>
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-blue.min.css"/>
+<link rel="stylesheet" type="text/css" href="../static/style.css"/>
+<link rel="stylesheet" type="text/css" href="../static/tweet.css"/>
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+</head>
+<body>
+<div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout">
+    <header class="demo-header mdl-layout__header mdl-layout__header--scroll">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">
+            Flood Dash
+            </span>
+        </div>
+    </header>
+    <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+            <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+                <div class="main">
+                    <div class="left" id="tweets">
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 1: &nbsp;
+                    <span id="title1">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster1',this)"></div>
+                            </div>
+                            <div class="content" id="cluster1"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 2: &nbsp;
+                    <span id="title2">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster2',this)"></div>
+                            </div>
+                            <div class="content" id="cluster2"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 3: &nbsp;
+                    <span id="title3">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster3',this)"></div>
+                            </div>
+                            <div class="content" id="cluster3"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 4: &nbsp;
+                    <span id="title4">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster4',this)"></div>
+                            </div>
+                            <div class="content" id="cluster4"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 5: &nbsp;
+                    <span id="title5">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster5',this)"></div>
+                            </div>
+                            <div class="content" id="cluster5"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 6: &nbsp;
+                    <span id="title6">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster6',this)"></div>
+                            </div>
+                            <div class="content" id="cluster6"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 7: &nbsp;
+                    <span id="title7">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster7',this)"></div>
+                            </div>
+                            <div class="content" id="cluster7"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 8: &nbsp;
+                    <span id="title8">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster8',this)"></div>
+                            </div>
+                            <div class="content" id="cluster8"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 9: &nbsp;
+                    <span id="title9">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster9',this)"></div>
+                            </div>
+                            <div class="content" id="cluster9"></div>
+                        </div>
+                        <div class="cluster">
+                            <div class="title">
+                                <div class="title_text">
+                                    Cluster 10: &nbsp;
+                    <span id="title10">
+                    </span>
+                                </div>
+                                <div class="button" onclick="toggle('cluster10',this)"></div>
+                            </div>
+                            <div class="content" id="cluster10"></div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div>
+                            <div id="googleMap" style="width:500px;height:380px;"></div>
+                            <!--<div onclick="addMark()">add mark</div>-->
+                        </div>
+                        <div id="news"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script>window.twttr = (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+
+    t._e = [];
+    t.ready = function (f) {
+        t._e.push(f);
+    };
+
+    return t;
+}(document, "script", "twitter-wjs"));</script>
+
+
+</body>
+</html>

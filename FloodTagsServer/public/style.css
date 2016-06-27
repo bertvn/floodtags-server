@@ -1,0 +1,54 @@
+.main {
+    width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.main .left {
+    float: left;
+}
+
+.main .left .cluster {
+    margin-bottom: 5px;
+}
+
+.main .left .cluster .title {
+    height: 50px;
+    width: 500px;
+    border: 1px solid #e1e8ed;
+    font: normal normal 16px/1.4 Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.main .left .cluster .title .title_text {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    float: left;
+    width: 448px;
+    padding: 5px;
+}
+
+.main .left .cluster .title .button {
+    background-image: url("../static/up.png");
+    background-color: #55acee;
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    float: right;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.main .left .cluster .content {
+    display: none;
+}
+
+.main .right {
+    float: right;
+}
