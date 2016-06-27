@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<script src="../static/jquery-2.2.3.min.js"></script>
 <script src="static/main.js"></script>
+
 <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-blue.min.css"/>
 <link rel="stylesheet" href="static/indexstyle.css"/>
 <head>
@@ -37,8 +38,8 @@
                 <h3>Setup:</h3>
                 <form>
                     <div class="formline">
-                        <div class="topic">datastream:</div>
-                        <select>
+                        <div class="topic" >datastream:</div>
+                        <select id="stream">
                             <option>demo</option>
                             <option>fews-world</option>
                             <option selected>flood</option>
@@ -58,16 +59,16 @@
                         -->
                     <div class="formline">
                         <div class="topic">cluster frame</div>
-                        <input type="number" value=360> minutes
+                        <input type="number" value=360 id="frame"> minutes
                     </div>
                     <div class="formline">
                         <div class="topic">loops</div>
-                        <input type="number" value=10><input type="checkbox">infinite
+                        <input type="number" value=10 id="loop"><input type="checkbox">infinite
                     </div>
                     <div class="formline">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent right-button">
+                        <div onclick="start_algorithm()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent right-button">
                             submit
-                        </button>
+                        </div>
                     </div>
                 </form>
             </div>

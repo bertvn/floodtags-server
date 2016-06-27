@@ -69,5 +69,14 @@ function toggle(id, button) {
     }
 }
 
-
+function stop_algorithm(){
+    $.ajax({
+        dataType: "json",
+        url: "/dashboard/stop_algorithm",
+        data: null,
+        success: function (data) {
+            console.log("stopped")
+        }
+    });
+}
 
