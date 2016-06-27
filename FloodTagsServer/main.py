@@ -32,7 +32,9 @@ class Dashboard(object):
         output = os.path.join(os.path.dirname(__file__) + "/public/result.json")
         location = os.path.join(os.path.dirname(__file__) + "/", config['algorithm']['location'])
         cmd = "python " + location + "main.py -in \"" + source + "\" -tf " + frame + " -l " + loops + " -out \"" + output + "\""
+        print(cmd)
         self.pro = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+        return "{\"response\" : \"ok\"}"
 
     @cherrypy.expose
     def stop_algorithm(self):
@@ -44,6 +46,7 @@ class Dashboard(object):
         process.kill()
         # os.killpg(os.getpgid(self.pro.pid), signal.SIGTERM)  # Send the signal to all the process groups
         self.pro = None
+        return "{\"response\" : \"ok\"}"
 
     @cherrypy.expose
     def get_data(self):

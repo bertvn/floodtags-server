@@ -12,5 +12,4 @@ function start_algorithm(){
             location.href = "/dashboard"
         }
     });
-    location.href = "/dashboard"
 }
