@@ -26,12 +26,12 @@ class Dashboard(object):
     @cherrypy.expose
     def start_algorithm(self, source, frame, loops):
         config = configparser.ConfigParser()
-        print(os.path.dirname(__file__) + "/config.ini")
-        config.read(os.path.dirname(__file__) + "/config.ini")
-        print(os.path.dirname(__file__) + "/config.ini")
+        print(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
+        config.read(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
+        print(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
         print(config.sections())
-        output = os.path.join(os.path.dirname(__file__) + "/public/result.json")
-        location = os.path.join(os.path.dirname(__file__) + "/", config['algorithm']['location'])
+        output = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/public/result.json")
+        location = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/", config['algorithm']['location'])
         print(location)
         cmd = "python " + location + "main.py -in \"" + source + "\" -tf " + frame + " -l " + loops + " -out \"" + output + "\""
         print(cmd)
