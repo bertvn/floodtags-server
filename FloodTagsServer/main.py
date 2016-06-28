@@ -34,7 +34,7 @@ class Dashboard(object):
         location = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/", config['algorithm']['location'].replace("\"",""))
         print(location)
         subprocess.Popen("python --version", stdout=subprocess.PIPE,shell=True)
-        cmd = "python " + location + "main.py -in \"" + source + "\" -tf " + frame + " -l " + loops + " -out \"" + output + "\""
+        cmd = "python " + location + "main.py -in \"" + source + "\" -tf " + frame + " -l " + loops + " -out " + output + ""
         print(cmd)
         self.pro = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
         return "{\"response\" : \"ok\"}"
