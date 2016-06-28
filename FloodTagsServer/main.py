@@ -30,9 +30,10 @@ class Dashboard(object):
         config.read(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
         print(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
         print(config.sections())
-        output = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/public/result.json")
+        output = os.path.join(os.path.dirname(os.path.abspath(__file__)) + r"/public/result.json")
         location = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/", config['algorithm']['location'].replace("\"",""))
         print(location)
+        subprocess.Popen("python --version", stdout=subprocess.PIPE,shell=True)
         cmd = "python " + location + "main.py -in \"" + source + "\" -tf " + frame + " -l " + loops + " -out \"" + output + "\""
         print(cmd)
         self.pro = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
