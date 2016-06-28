@@ -31,6 +31,7 @@ class Dashboard(object):
         print(config.sections())
         output = os.path.join(os.path.dirname(__file__) + "/public/result.json")
         location = os.path.join(os.path.dirname(__file__) + "/", config['algorithm']['location'])
+        print(location)
         cmd = "python " + location + "main.py -in \"" + source + "\" -tf " + frame + " -l " + loops + " -out \"" + output + "\""
         print(cmd)
         self.pro = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
