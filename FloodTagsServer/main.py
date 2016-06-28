@@ -26,6 +26,7 @@ class Dashboard(object):
     @cherrypy.expose
     def start_algorithm(self, source, frame, loops):
         config = configparser.ConfigParser()
+        print(os.path.dirname(__file__) + "/config.ini")
         config.read(os.path.dirname(__file__) + "/config.ini")
         print(os.path.dirname(__file__) + "/config.ini")
         print(config.sections())
