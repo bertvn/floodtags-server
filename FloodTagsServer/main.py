@@ -31,7 +31,7 @@ class Dashboard(object):
         print(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
         print(config.sections())
         output = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/public/result.json")
-        location = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/", config['algorithm']['location'])
+        location = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/", config['algorithm']['location'].replace("\"",""))
         print(location)
         cmd = "python " + location + "main.py -in \"" + source + "\" -tf " + frame + " -l " + loops + " -out \"" + output + "\""
         print(cmd)
