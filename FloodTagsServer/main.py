@@ -1,3 +1,6 @@
+"""
+server script for displaying the floodtags algorithm found at https://github.com/bertvn/floodtags
+"""
 import configparser
 import os
 import subprocess
@@ -8,39 +11,68 @@ import psutil
 
 
 class App(object):
+    """
+    main server class
+    """
     def __init__(self):
+        """
+        constructor for the App class
+        creates the dashboard webpage
+        :return: None
+        """
         self.dashboard = Dashboard()
 
     @cherrypy.expose
     def index(self):
+        """
+        returns the html page
+        :return: html page
+        """
         return open('public/index.html')
 
 class Dashboard(object):
+    """
+    dashboard class
+    """
     def __init__(self):
+        """
+        constructor for the dashboard
+        :return: None
+        """
         self.pro = None
 
     @cherrypy.expose
     def index(self):
+        """
+        returns the html page
+        :return: html page
+        """
         return open('public/dashboard.html')
 
     @cherrypy.expose
     def start_algorithm(self, source, frame, loops):
+        """
+        starts the algorithm
+        :param source: datastream to be used
+        :param frame: time frame the algorithm uses to filter
+        :param loops: amount of times the algorithm is repeated after it's initial run
+        :return: Json string
+        """
         config = configparser.ConfigParser()
-        print(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
         config.read(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
-        print(os.path.dirname(os.path.abspath(__file__)) + "/config.ini")
-        print(config.sections())
         output = os.path.join(os.path.dirname(os.path.abspath(__file__)) + r"/public/result.json")
         location = os.path.join(os.path.dirname(os.path.abspath(__file__)) + "/", config['algorithm']['location'].replace("\"",""))
-        print(location)
         subprocess.Popen("python --version", stdout=subprocess.PIPE,shell=True)
         cmd = "python " + location + "main.py -in \"" + source + "\" -tf " + frame + " -l " + loops + " -out " + output + ""
-        print(cmd)
         self.pro = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
         return "{\"response\" : \"ok\"}"
 
     @cherrypy.expose
     def stop_algorithm(self):
+        """
+        stops the algorithm before it's done
+        :return: Json string
+        """
         if not self.pro:
             return
         process = psutil.Process(self.pro.pid)
@@ -53,6 +85,10 @@ class Dashboard(object):
 
     @cherrypy.expose
     def get_data(self):
+        """
+        when algorithm is completed this function pushes the result to the client
+        :return: output from the algorithm
+        """
         cherrypy.response.headers["Content-Type"] = "text/event-stream;charset=utf-8"
 
         def content():
